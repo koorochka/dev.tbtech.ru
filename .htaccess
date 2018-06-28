@@ -12,6 +12,7 @@ ErrorDocument 404 /404.php
   #php_value pcre.recursion_limit 10000
 </IfModule>
 
+
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
   RewriteEngine On
