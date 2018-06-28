@@ -1,0 +1,245 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+<IfModule mod_php7.c>
+  php_flag allow_call_time_pass_reference 1
+  php_flag session.use_trans_sid off
+  #php_value display_errors 1
+  #php_value mbstring.func_overload 2
+  #php_value mbstring.internal_encoding UTF-8
+  php_flag register_globals off
+  php_value max_input_vars 11000
+  #php_value pcre.recursion_limit 10000
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+  # 301 from www
+  RewriteCond %{HTTP_HOST} ^www\.(.*)
+  RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+  # split domains
+  RewriteCond %{HTTP_HOST} ^meksteklo.tmweb.ru
+  RewriteRule ^(.*)$ http://meksteklo.ru/$1 [R=permanent,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"
+</IfModule>
+
+redirect 301 /brands/396/ /brands/glaston/
+redirect 301 /brands/394/ /brands/fratelli-pezza/
+redirect 301 /brands/393/ /brands/glass-serwis/
+redirect 301 /text/about.php /info/
+redirect 301 /text/contacts.php /contacts/
+redirect 301 /text/service.php /service/
+redirect 301 /equipment/straight_processing_facet/b75_machine_for_facet/ /equipment/straight_processing_facet/vb-350-stanok-dlya-obrabotki-fatseta/
+redirect 301 /equipment/curved_processing_facet/ /equipment/krivolineynaya-obrabotka-kromki-i-fatseta/
+redirect 301 /equipment/furnaces_for_tempering_glass/RC200/ /equipment/furnaces_for_tempering_glass/rc200-pech-dlya-zakalki-stekla/
+redirect 301 /equipment/straight_processing_facet/max80_machine_for_facet/ /equipment/straight_processing_facet/vb-500-stanok-dlya-obrabotki-fatseta/
+redirect 301 /equipment/the_straight_line_edging/HiYON_V14_machine_for_straight_edge_and_at_a_variable_angle/ /equipment/the_straight_line_edging/ve-500-v14-stanok-dlya-obrabotki-pryamolineynoy-kromki-pod-peremennym-uglom/
+redirect 301 /equipment/the_straight_line_edging/gemy_v10_machine_for_straight_edge_and_at_a_variable_angle/ /equipment/the_straight_line_edging/ve-500-v10-stanok-dlya-obrabotki-pryamolineynoy-kromki-pod-peremennym-uglom/
+redirect 301 /equipment/the_straight_line_edging/hiyon_6_hiyon_8_hiyon_9c_hiyon_11_hiyon11xt/ /equipment/the_straight_line_edging/ve-350-6-ve-350-8-ve-500-11/
+redirect 301 /articles/ /info/articles/
+redirect 301 /text/tools.php /tools/
+redirect 301 /equipment/oborudovanie_dlya_pokraski_stekla/ /equipment/
+redirect 301 /equipment/cnc_machining_centers/speed_edge/ /equipment/cnc_machining_centers/
+redirect 301 /equipment/drilling_holes/drill_b_11/ /equipment/drilling_holes/
+redirect 301 /upload/presentation_equipment_tbtech.pdf /equipment/the_straight_line_edging/
+redirect 301 /brands/390/ /brands/siat/
+redirect 301 /brands/395/ /brands/
+redirect 301 /equipment/2200_studio_uno/ /equipment/
+redirect 301 /equipment/tables_and_line_cutting_glass/svp_1080/ /equipment/tables_and_line_cutting_glass/
+redirect 301 /upload/sert_siat.pdf /info/licenses/
+redirect 301 /brands/388/ /brands/
+redirect 301 /equipment/bilateral_edging/power_edge_vx_series_machine_sided_edge_stekloobrabotki/ /equipment/
+redirect 301 /tools/SB10/377/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/sb-10-profil-trapetsiya-fa/
+redirect 301 /equipment/b_y/ /equipment/oborudovanie_b_u/
+redirect 301 /upload/sertificate_distribute_tbtech.pdf /info/licenses/
+redirect 301 /text/equipmentby.php /equipment/oborudovanie_b_u/
+redirect 301 /equipment/bilateral_edging/v_series_machine_sided_edge_stekloobrabotki/ /equipment/
+redirect 301 /equipment/2000x3000_mm_studio_uno/ /equipment/
+redirect 301 /u-equipment/palletoupakovshchiki/f0/ /u-equipment/palletoupakovshchiki/
+redirect 301 /tools/cerium_oxide_regipol/ /tools/
+redirect 301 /tools/drills_75/ /tools/
+redirect 301 /tools/drills_95/ /tools/
+redirect 301 /tools/300/ /tools/
+redirect 301 /tools/299/ /tools/
+redirect 301 /tools/319/ /tools/
+redirect 301 /tools/324/ /tools/
+redirect 301 /tools/320/ /tools/
+redirect 301 /tools/331/ /tools/
+redirect 301 /tools/333/ /tools/
+redirect 301 /tools/311/ /tools/
+redirect 301 /tools/282/ /tools/
+redirect 301 /tools/315/ /tools/
+redirect 301 /tools/291/ /tools/
+redirect 301 /tools/314/ /tools/
+redirect 301 /tools/323/ /tools/
+redirect 301 /tools/328/ /tools/
+redirect 301 /tools/MAX80_CNP/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/194/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/193/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/187/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/185/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/188/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/195/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/196/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/189/ /tools/vertikalnyy-fatsetnik/pryamolineynyy-fatset-max80cnp/
+redirect 301 /tools/293/ /tools/
+redirect 301 /tools/326/ /tools/
+redirect 301 /tools/304/ /tools/
+redirect 301 /tools/312/ /tools/
+redirect 301 /tools/327/ /tools/
+redirect 301 /tools/278/ /tools/
+redirect 301 /tools/285/ /tools/
+redirect 301 /tools/276/ /tools/
+redirect 301 /tools/281/ /tools/
+redirect 301 /tools/NRG/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/269/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/248/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/266/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/236/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/254/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/270/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/261/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/382/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/264/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/265/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/262/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/259/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/271/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/272/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/260/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/263/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/381/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/268/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/267/ /tools/gorizontalnyy-obrabatyvayushchiy-tsentr/nrg-baveolli/
+redirect 301 /tools/gemy_11/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/137/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/139/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/136/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/140/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/145/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/146/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/142/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/144/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/141/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/143/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/148/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/149/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/147/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy11/
+redirect 301 /tools/Bottero_Variant_810BC/359/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/Bottero_Variant_810BC/358/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/Bottero_Variant_810BC/363/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/Bottero+Variant+810BC/362/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/Bottero_Variant_810BC/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/Bottero+Variant+810BC/360/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/Bottero+Variant+810BC/361/ /tools/dvukhstoronniy-kromochnik/kromochnik-bottero-variant-810-bc/
+redirect 301 /tools/B75_CNS/ /tools/
+redirect 301 /tools/172/ /tools/
+redirect 301 /tools/174/ /tools/
+redirect 301 /tools/SB10/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/229/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/205/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/204/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/223/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/211/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/225/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/209/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/214/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/379/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/206/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/207/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/217/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/230/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/220/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/212/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/215/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/227/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/213/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/219/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/224/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/210/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/208/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/218/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/222/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/226/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/221/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/228/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/216/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/231/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/232/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/233/ /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/
+redirect 301 /tools/gemy_8/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/162/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/169/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/164/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/167/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/163/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/168/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/375/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/166/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/170/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/171/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy8/
+redirect 301 /tools/bottero_907/ /tools/
+redirect 301 /tools/371/ /tools/
+redirect 301 /tools/203/ /tools/
+redirect 301 /tools/287/ /tools/
+redirect 301 /tools/298/ /tools/
+redirect 301 /tools/334/ /tools/
+redirect 301 /tools/370/ /tools/
+redirect 301 /tools/313/ /tools/
+redirect 301 /tools/325/ /tools/
+redirect 301 /tools/369/ /tools/
+redirect 301 /tools/306/ /tools/
+redirect 301 /tools/277/ /tools/
+redirect 301 /tools/318/ /tools/
+redirect 301 /tools/317/ /tools/
+redirect 301 /tools/288/ /tools/
+redirect 301 /tools/307/ /tools/
+redirect 301 /tools/329/ /tools/
+redirect 301 /tools/368/ /tools/
+redirect 301 /tools/316/ /tools/
+redirect 301 /tools/301/ /tools/
+redirect 301 /tools/gemy_9c/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/151/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/156/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/157/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/160/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/
+redirect 301 /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/159/ /tools/vertikalnyy-kromochnik/pryamolineynyy-kromochnik-gemy9c/
+redirect 301 /tools/aluminium_oxide/ /tools/
+redirect 301 /tools/173/ /tools/
+redirect 301 /tools/krivolineynyy-poluavtomaticheskiy-stanok/krivolineynyy-fatset-sb-10/380/ /tools/vertikalnyy-obrabatyvayushchiy-tsentr/krugi-profil-karandash-pe/
+redirect 301 /tools/179/ /tools/
+redirect 301 /tools/182/ /tools/
+redirect 301 /tools/175/ /tools/
+redirect 301 /tools/352/ /tools/
+redirect 301 /tools/366/ /tools/
+redirect 301 /tools/372/ /tools/
+redirect 301 /tools/177/ /tools/
+redirect 301 /tools/176/ /tools/
+redirect 301 /tools/expendables/ /tools/
+redirect 301 /tools/376/ /tools/
+redirect 301 /tools/81/ /tools/
+redirect 301 /tools/124/ /tools/
+redirect 301 /tools/ALPA/355/ /equipment/cnc_machining_centers/alpa450_4n/
+redirect 301 /u-equipment/zakleyshchiki_gofrokorobov/zakleyshchik_gofrokorobov_sk_2/ /u-equipment/zakleyshchiki_gofrokorobov/zakleyshchik-gofrokorobov-sk-20/
+redirect 301 /u-equipment/zakleyshchiki_gofrokorobov/zakleyshchik_gofrokorobov_sr_4/ /u-equipment/zakleyshchiki_gofrokorobov/zakleyshchik-gofrokorobov-sr-20/
+AddDefaultCharset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml
